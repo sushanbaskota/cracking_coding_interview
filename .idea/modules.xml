@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project version="4">
-  <component name="ProjectModuleManager">
-    <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/cracking_coding_interview.iml" filepath="$PROJECT_DIR$/.idea/cracking_coding_interview.iml" />
-      <module fileurl="file://$PROJECT_DIR$/programs/programs.iml" filepath="$PROJECT_DIR$/programs/programs.iml" />
-    </modules>
-  </component>
-</project>
