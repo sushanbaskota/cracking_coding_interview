@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class LongestCommonPrefix {
     public String longestCommonPrefix(String[] strs) {
         if (strs.length == 1) {
@@ -43,10 +45,38 @@ public class LongestCommonPrefix {
         return "";
     }
 
+    /**
+     * Say you sort an array of words. The first word starts with a "b" and the last word also starts with a "b".
+     * What does that tell you about all the words in between them?
+     * They also all start with "b"! We know this because the words are sorted and the only way the first and last word
+     * can both start with the same letter AND have the array be in order is if all the words in between start with the same letter.
+     * Using this logic, if we sort our array of words we only ever have to look at the first and last one.
+     * We can ignore all the middle words entirely since we know if the prefix matches for the first and last, it matches for the middle ones as well.
+     * @param strs
+     * @return
+     */
+    public String longestCommonPrefixOptimal(String[] strs) {
+        if (strs == null || strs.length == 0)
+            return "";
+
+        Arrays.sort(strs);
+        String first = strs[0];
+        String last = strs[strs.length - 1];
+        int c = 0;
+        while (c < first.length()) {
+            if (first.charAt(c) == last.charAt(c))
+                c++;
+            else
+                break;
+        }
+        return c == 0 ? "" : first.substring(0, c);
+    }
+
     public static void main(String[] args) {
-        String[] strs = {"flower", "flow", "flight"};
+        //String[] strs = {"flower", "flow", "flight"};
         //String[] strs = {"a"};
         //String[] strs = {"aaa", "aa", "aaa"};
-        System.out.println(new LongestCommonPrefix().longestCommonPrefix(strs));
+        String[] strs = {"dog", "racecar", "car"};
+        System.out.println(new LongestCommonPrefix().longestCommonPrefixOptimal(strs));
     }
 }
