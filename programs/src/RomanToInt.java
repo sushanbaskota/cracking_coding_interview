@@ -43,18 +43,18 @@ public class RomanToInt {
         for (char i : arr) {
             st.push(i);
         }
-        ;
 
-        int curr = 0;
+        int prevValue = 0;
         int sum = 0;
         for (int i = 0; i < s.length(); i++) {
-            int temp = map.get(st.pop());
-            if (temp >= curr)
-                sum += temp;
+            char popChar = st.pop();
+            int currentValue = map.get(popChar);
+            if (currentValue >= prevValue)
+                sum += currentValue;
             else
-                sum -= temp;
+                sum -= currentValue;
 
-            curr = temp;
+            prevValue = currentValue;
 
         }
         return sum;
