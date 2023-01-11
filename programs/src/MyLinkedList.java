@@ -49,15 +49,6 @@ public class MyLinkedList {
             System.out.println(current.data);
         }
     }
-}
-
-class Node {
-    int data;
-    Node next;
-
-    public Node(int data) {
-        this.data = data;
-    }
 
     public static void main(String[] args) {
         MyLinkedList list = new MyLinkedList();
@@ -76,5 +67,14 @@ class Node {
         System.out.println("after delete");
 
         list.print();
+    }
+
+    private class Node {
+        int data;
+        Node next;
+
+        public Node(int data) {
+            this.data = data;
+        }
     }
 }
