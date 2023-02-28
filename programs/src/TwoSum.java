@@ -17,12 +17,6 @@ public class TwoSum {
 
     public int[] twoSum_optimal(int[] nums, int target) {
         Map<Integer, Integer> map = new HashMap<>();
-        /**
-         * 4 0
-         * 6 1
-         * 2 2
-         *
-         */
 
         for (int i = 0; i < nums.length; i++) {
             int complement = target - nums[i];
@@ -35,8 +29,25 @@ public class TwoSum {
         return null;
     }
 
+    public static int[] twoNumberSum(int[] array, int targetSum) {
+        // Write your code here.
+        Map<Integer, Integer> map = new HashMap<>();
+
+        for (int i = 0; i < array.length; i++) {
+            int complement = targetSum - array[i];
+
+            if (map.containsKey(complement)) {
+                return new int[]{array[i], array[map.get(complement)]};
+            } else {
+                map.put(array[i], i);
+            }
+        }
+        return new int[0];
+    }
+
     public static void main(String[] args) {
         System.out.println(Arrays.toString(new TwoSum().twoSum_bruteForce(new int[]{4, 6, 2, 7}, 9)));
         System.out.println(Arrays.toString(new TwoSum().twoSum_optimal(new int[]{4, 6, 2, 7}, 9)));
+        System.out.println(Arrays.toString(new TwoSum().twoNumberSum(new int[]{4, 6, 2, 7}, 9)));
     }
 }

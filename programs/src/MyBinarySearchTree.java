@@ -107,6 +107,22 @@ public class MyBinarySearchTree {
         }
     }
 
+    private int closestValue(int target) {
+        return closestInOrder(root, target, root.data);
+    }
+
+    private int closestInOrder(Node current, int target, int closest) {
+        if (current != null) {
+            closestInOrder(current.left, target, closest);
+            if (current.data == target) {
+                return closest;
+            }
+            closestInOrder(current.right, target, closest);
+        }
+
+        return closest;
+    }
+
     public String toString() {
         return "Root -> " + root;
     }
@@ -122,15 +138,17 @@ public class MyBinarySearchTree {
         bt.insert(7);
         bt.insert(9);
 
-        System.out.println(bt.search(5));
-        System.out.println(bt.search(1));
+        System.out.println(bt.closestValue(10));
 
-        bt.inOrderTraversal();
-        System.out.println();
-
-        bt.preOrderTraversal();
-        System.out.println();
-
-        bt.postOrderTraversal();
+//        System.out.println(bt.search(5));
+//        System.out.println(bt.search(1));
+//
+//        bt.inOrderTraversal();
+//        System.out.println();
+//
+//        bt.preOrderTraversal();
+//        System.out.println();
+//
+//        bt.postOrderTraversal();
     }
 }
