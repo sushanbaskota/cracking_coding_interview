@@ -24,8 +24,7 @@ public class ObjectArr {
     public static void main(String[] args) {
         Queue<String> queue = new PriorityQueue<>();
 
-        queue.
-                Person[] personArr = new Person[5];
+        Person[] personArr = new Person[5];
 
         personArr[0] = new Person("sushan", "1");
         personArr[1] = new Person("sangi", "2");
