@@ -24,7 +24,7 @@ public class RobHouse {
         return Math.max(rob_DP(nums, i - 2) + currentHouseMoney, rob_DP(nums, i - 1));
     }
 
-    public int rob_DP_Memo(int[] nums, int i, Map<Integer, Integer> memoMap) {
+    public static int rob_DP_Memo(int[] nums, int i, Map<Integer, Integer> memoMap) {
         if (memoMap.containsKey(i)) {
             return memoMap.get(i);
         }
