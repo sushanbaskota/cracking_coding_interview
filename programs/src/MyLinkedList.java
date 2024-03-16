@@ -50,6 +50,50 @@ public class MyLinkedList {
         }
     }
 
+    public void print_recursively() {
+        Node current = head;
+        print_rec(current);
+    }
+
+    private void print_rec(Node current) {
+        if (current == null) {
+            return;
+        }
+
+        System.out.println(current.data);
+
+        if (current.next == null) {
+            return;
+        }
+
+        print_rec(current.next);
+    }
+
+    public int findNthNodeFromEnd(int n) {
+        if (head == null) {
+            return -1;
+        }
+
+        int count = 1;
+
+        Node current = head;
+
+        while (current.next != null) {
+            current = current.next;
+            count++;
+        }
+
+        System.out.println(count);
+
+        int searchNodeIndex = count - n; // 5 - 4 = 1
+
+        if (searchNodeIndex > 0) {
+
+        }
+
+        return -1;
+    }
+
     public static void main(String[] args) {
         MyLinkedList list = new MyLinkedList();
 
@@ -59,14 +103,16 @@ public class MyLinkedList {
         list.append(3);
         list.append(8);
 
-        list.print();
+        System.out.println(list.findNthNodeFromEnd(4));
 
-        list.deleteWithValue(4);
-        list.prepend(9);
-
-        System.out.println("after delete");
-
-        list.print();
+//        list.print_recursively();
+//
+//        list.deleteWithValue(4);
+//        list.prepend(9);
+//
+//        System.out.println("after delete");
+//
+//        list.print();
     }
 
     private class Node {

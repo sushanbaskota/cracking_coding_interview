@@ -51,7 +51,7 @@ class BFSTree {
 
             System.out.print(current.data + " ");
 
-            // this order matters L -> R, usually we go L then R
+            // this order matters L -> R, usually we go L then R, we need to push R first then L (stack), so on pop it will give L
             if (current.right != null) {
                 stack.push(current.right);
             }
@@ -59,6 +59,18 @@ class BFSTree {
             if (current.left != null) {
                 stack.push(current.left);
             }
+        }
+    }
+
+    void preOrderTraversal() {
+        preOrderTraversal_recursive(root);
+    }
+
+    void preOrderTraversal_recursive(Node current) {
+        if (current != null) {
+            System.out.print(" " + current.data);
+            preOrderTraversal_recursive(current.left);
+            preOrderTraversal_recursive(current.right);
         }
     }
 
@@ -103,6 +115,10 @@ class BFSTree {
         System.out.println();
 
         bfsTree.root = node;
+
+        bfsTree.preOrderTraversal();
+
+        System.out.println();
 
         bfsTree.bfsOrLevelOrderTraversal();
 

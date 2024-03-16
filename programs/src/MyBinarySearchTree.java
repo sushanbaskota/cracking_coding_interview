@@ -143,10 +143,9 @@ public class MyBinarySearchTree {
 //        System.out.println(bt.search(5));
 //        System.out.println(bt.search(1));
 //
-//        bt.inOrderTraversal();
+        bt.inOrderTraversal();
 //        System.out.println();
-//
-//        bt.preOrderTraversal();
+//      bt.preOrderTraversal();
 //        System.out.println();
 //
 //        bt.postOrderTraversal();
